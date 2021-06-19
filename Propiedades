@@ -1,0 +1,13 @@
+import java.util.Arraylist
+
+public static class Main{
+ public Arraylist<Propiedad> propiedades = newArrayList<>();
+ 
+ public static void main(String[] args){
+    Propiedad p1 = new Propiedad("CASA SAMBO");
+    Propiedad p2 = new Propiedad("TUKASA");
+    propiedades.add(p1);
+    propiedades.add(p2);
+    return propiedades
+    }
+ }
