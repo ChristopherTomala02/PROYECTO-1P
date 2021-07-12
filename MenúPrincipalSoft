@@ -36,4 +36,40 @@ public class SistemaHogar {
             }
         }
     }
+    public void registrarUsuario() {
+        String dt = "";
+        System.out.println("\n----- Bienvenido al menu de registro -----");
+        System.out.println("1. Cliente");
+        System.out.println("2. Agente");
+        System.out.println("3. Administrador");
+        System.out.println("4. Regresar");
+        System.out.print("Ingrese una opcion de Registro : ");
+        dt = sc.next();
+        if (op.equals("4")) {
+            this.MenuNumerico();
+        } 
+        else if (dt.equalsIgnoreCase("1") || dt.equalsIgnoreCase("2")|| dt.equalsIgnoreCase("3")) {
+            System.out.println("\nIngrese sus datos");
+            sc.nextLine();
+            System.out.print("Username: ");
+            String user = sc.nextLine();
+            System.out.print("Password: ");
+            String word = sc.nextLine();
+            System.out.println("Nombre: ");
+            String nombre = sc.nextLine();
+            System.out.println("CEDULA/ID: ");
+            String id = sc.nextLine();
+            System.out.println("Fecha de Nacimiento: ");
+            String FechaN = sc.nextLine();
+            LocalDate hoy = LocalDate.now();   
+            LocalDate nacimiento = FechaN.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(); 
+            long edad = ChronoUnit.YEARS.between(nacimiento, hoy); 
+            if (edad < 18){
+                System.out.println("No puede registrarse")
+            }
+            System.out.print("Correo: ");
+            String correo = sc.next();         
+        }
+    }
+}
 }
