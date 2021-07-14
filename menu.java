@@ -41,7 +41,7 @@ public class SistemaHogar {
             }
         }
     }
-public void registrarUsuario() {
+    public void registrarUsuario() {
         String dt = "";
         System.out.println("\n----- Bienvenido al menu de registro -----");
         System.out.println("1. Cliente");
@@ -53,7 +53,7 @@ public void registrarUsuario() {
         if (op.equals("4")) {
             this.MenuNumerico();
         } 
-        else if (dt.equalsIgnoreCase("1") || dt.equalsIgnoreCase("2")) {
+        else if (dt.equalsIgnoreCase("1") || dt.equalsIgnoreCase("2")|| dt.equalsIgnoreCase("3")) {
             System.out.println("\nIngrese sus datos");
             sc.nextLine();
             System.out.print("Username: ");
@@ -71,45 +71,7 @@ public void registrarUsuario() {
             
             String direccion = null;
             Coordenada ubicacion = null;
-            while (!(resp.equalsIgnoreCase("coordenada") || resp.equalsIgnoreCase("direccion"))) {
-                System.out.println("¿Desea Ingresar Coordenada o una direccion?:");
-                resp = sc.nextLine();
-                if ("coordenada".equals(resp.toLowerCase())) {
-                    System.out.print("Latitud: ");
-                    double lat = sc.nextDouble();
-                    System.out.print("Longitud: ");
-                    double lon = sc.nextDouble();
-                    ubicacion = new Coordenada(lat, lon);
-                    direccion = SistemaGPS.consultarUbicacion(ubicacion);
-                } else if ("direccion".equals(resp.toLowerCase())) {
-                    System.out.print("Ingresa direccion separada por coma  (Lugar,ciudad) :");
-                    direccion = sc.nextLine();
-                    ubicacion = SistemaGPS.consultarUbicacion(direccion);
-                } else {
-                    System.out.println("Ingresa una direccion valida :) ");
-                }
-            }
-            System.out.print("Correo: ");
-            String correo = sc.next();
-            if (op.equals("1")) {
-                System.out.print("Ingrese su forma de pago preferida: ");
-                String pago = sc.next();
-                sistema.clientes.add(new Comprador(id, name, ubicacion, correo, pago, user, word));
-                sistema.cambiaDireccion(new Comprador(id, name, ubicacion, correo, pago, user, word), direccion);
-                
-                for (Comprador clientes : sistema.clientes) {
-                    System.out.print("cliente " + clientes);
-                }
-            } else if (op.equals("2")) {
-                System.out.print("Numero de contacto: ");
-                String telf = sc.next();
-                sistema.proveedores.add(new Proveedor(user, word, id, name, ubicacion, telf, correo));
-                for (Proveedor prov : sistema.proveedores) {
-                    System.out.print("Proveedores" + prov);
-                }
-            } else {
-                System.out.println("Intente nuevamente por favor");
-            }
+            
         }
     }
 
